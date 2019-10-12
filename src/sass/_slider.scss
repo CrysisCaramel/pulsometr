@@ -1,0 +1,38 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    min-height: 743px;
+    padding: 108px 0;
+    &__item {
+        display: block;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .fade {
+        display: none;
+    }
+    &__prev {
+        display: flex;
+        align-items: center;
+        margin-right: 66px;
+        .prev {
+            display: block;
+            width: 31px;
+            height: 50px;
+            background: url("../img/picture/sliderleft.png") center (center/cover) no-repeat;
+        }
+    }
+    &__next {
+        display: flex;
+        align-items: center;
+        margin-left: 70px;
+        .next {
+            display: block;
+            width: 31px;
+            height: 50px;
+            background: url("../img/picture/slideright.png") center (center/cover) no-repeat;
+        }
+    }
+}
