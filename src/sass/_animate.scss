@@ -1,0 +1,30 @@
+.animate {
+    height: 500px;
+    &__wrap {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__promo {
+        margin-top: 100px;
+        .design {
+            margin: 0 auto;
+            position: relative;
+            height: 300px;
+            width: 300px;
+        }
+        .design > * {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        .rotated-border {
+            &:hover {
+                animation: spaces 0.5s ease-out 0s infinite normal none;
+            }
+            box-sizing: border-box;
+            bottom: 15px red solid;
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px red;
+        }
+    }
+}
