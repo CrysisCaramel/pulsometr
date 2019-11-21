@@ -1,7 +1,6 @@
 {
   "name": "pulsometr",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +17,14 @@
     "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrysisCaramel/pulsometr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CrysisCaramel/pulsometr/issues"
+  },
+  "homepage": "https://github.com/CrysisCaramel/pulsometr#readme",
+  "description": ""
 }

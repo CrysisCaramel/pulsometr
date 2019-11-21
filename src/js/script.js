@@ -1,28 +1,32 @@
 "use strict";
-//slider
-let item = document.querySelectorAll(".slider__item"),
+function slider() {
+    let slideIndex = 1,
+    slides = document.querySelectorAll(".slider__item"),
     prev = document.querySelector(".prev"),
     next = document.querySelector(".next"),
-    SlideIndex = 1;
+    dotswrap = document.querySelector(".slider-dots"),
+    dot = document.querySelectorAll(".dot");
 
-ShowSlides(SlideIndex);
 
-function ShowSlides(r) {
-    if (r > item.length) {
-        SlideIndex = 1;
+ShowSlides(slideIndex)
+function ShowSlides(n) {
+    if (n > slides.length) {
+        slideIndex = 1;
     }
-    if (r < 1) {
-        SlideIndex = item.length;
+    if (n < 1) {
+        slideIndex = slides.length;
     }
-    item.forEach((img) => img.style.display = "none");
-    item[SlideIndex - 1].style.display = "block";
-} 
 
-function plus(r) {
-    ShowSlides(SlideIndex += r);
+    slides.forEach((item) => item.style.display = "none");
+    dot.forEach((item) => item.classList.remove("dot-active"))
+    slides[slideIndex - 1].style.display = "block";
+    dot[slideIndex - 1].classList.add("dot-active");
+}
+function plus(n) {
+    ShowSlides(slideIndex += n);
 };
-function SlidesBtn(r) {
-    ShowSlides(SlideIndex = r);
+function SlidesBtn(n) {
+    ShowSlides(slideIndex = n);
 };
 prev.addEventListener("click", function(){
     plus(-1);
@@ -30,6 +34,15 @@ prev.addEventListener("click", function(){
 next.addEventListener("click", function(){
     plus(1);
 });
+dotswrap.addEventListener("click", function(event) {
+    for(let i = 0; i < dot.length + 1; i++) {
+        if(event.target.classList.contains("dot") && event.target == dot[i-1]) {
+            SlidesBtn(i);
+        }
+    }
+});
+}
+slider();
 
 //tabs 
 let link = document.querySelectorAll(".catalog-item__link"),

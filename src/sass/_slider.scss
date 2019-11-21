@@ -1,38 +1,78 @@
 .slider {
-    display: flex;
-    justify-content: center;
-    min-height: 743px;
-    padding: 108px 0;
-    &__item {
-        display: block;
-        img {
-            display: block;
-            margin: 0 auto;
-        }
-    }
-    .fade {
-        display: none;
+    height: 800px;
+    position: relative;
+    &__wrap {
+        margin: 0 auto;
+        position: relative;
+        width: 750px;
+        margin-top: 40px;
     }
     &__prev {
-        display: flex;
-        align-items: center;
-        margin-right: 66px;
+        width: 90px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -10%;
+        &:hover {
+            transition: 0.7s;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
         .prev {
-            display: block;
-            width: 31px;
-            height: 50px;
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            top: 50%;
+            right: 40%;
+            transform: translateY(-50%);
             background: url("../img/picture/sliderleft.png") center (center/cover) no-repeat;
         }
     }
     &__next {
-        display: flex;
-        align-items: center;
-        margin-left: 70px;
+        width: 90px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: -10%;
+        &:hover {
+            transition: 0.7s;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
         .next {
-            display: block;
-            width: 31px;
-            height: 50px;
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            top: 50%;
+            left: 40%;
+            transform: translateY(-50%);
             background: url("../img/picture/slideright.png") center (center/cover) no-repeat;
         }
     }
+
+    &__item {
+        img {
+            width: 750px;
+            height: 580px;
+        }
+    }
+
+    .slider-dots {
+        margin-top: 15px;
+        display: block;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        .dot {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+            background-color: black;
+            border-radius: 50%;
+            transition: all 0.7s;
+        }
+        .dot-active {
+            background-color: red;
+        }
+    }
 }
+    
