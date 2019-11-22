@@ -115,3 +115,5 @@ catalog.addEventListener("click", function(event) {
     }
 })
 
+import "./css/main.css"
+// import "./scss/main.scss"
