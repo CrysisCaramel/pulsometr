@@ -11,6 +11,14 @@ module.exports = {
         publicPath: "/dist"
     },
 
+    module: {
+        rules: [{
+            test: /\.js$/,
+            loader: "babel-loader",
+            exclude: "/node_modules"
+        }]
+    },
+
     devServer: {
         overlay: true
     }
