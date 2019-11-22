@@ -24,7 +24,7 @@
             top: 50%;
             right: 50%;
             transform: translate(50%, -50%);
-            background: url("../img/picture/sliderleft.png") center (center/cover) no-repeat;
+            background: url(/img/picture/sliderleft.png) center (center/cover) no-repeat;
         }
     }
     &__next {
@@ -44,7 +44,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background: url("../img/picture/slideright.png") center (center/cover) no-repeat;
+            background: url(/img/picture/slideright.png) center (center/cover) no-repeat;
         }
     }
 
