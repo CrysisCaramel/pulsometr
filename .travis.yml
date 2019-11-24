@@ -5,7 +5,7 @@ node_js:
 os: windows
 
 script:
-  -npm run build
+  - npm run build
 
 deploy:
   provider: pages
