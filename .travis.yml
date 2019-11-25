@@ -6,7 +6,6 @@ os: windows
 
 script:
   - npm run build
-  - npx eslint ./dist/main.js 
 
 deploy:
   provider: pages
