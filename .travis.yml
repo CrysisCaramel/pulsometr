@@ -5,6 +5,7 @@ node_js:
 os: ocx
 
 script:
+  - npx eslint src/index.js 
   - npm run build
 
 deploy:
