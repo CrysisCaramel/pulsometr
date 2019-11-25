@@ -20,11 +20,10 @@
         .prev {
             position: absolute;
             width: 30px;
-            height: 40px;
+            height: 50px;
             top: 50%;
             right: 50%;
             transform: translate(50%, -50%);
-            background: url(/img/picture/sliderleft.png) center (center/cover) no-repeat;
         }
     }
     &__next {
@@ -40,11 +39,10 @@
         .next {
             position: absolute;
             width: 30px;
-            height: 40px;
+            height: 50px;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background: url(/img/picture/slideright.png) center (center/cover) no-repeat;
         }
     }
 
