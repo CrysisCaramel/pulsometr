@@ -6,6 +6,7 @@ os: windows
 
 script:
   - npm run build
+  - npx eslint ./dist/main.js 
 
 deploy:
   provider: pages
@@ -13,4 +14,4 @@ deploy:
   github_token: $GITHUB_TOKEN
   keep_history: true
   on:
-    branch: master
+    branch: ci
