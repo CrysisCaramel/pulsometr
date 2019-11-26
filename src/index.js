@@ -71,8 +71,8 @@ catalog.addEventListener("click", function(event) {
         }
     }
 });
+import "./scss/main.scss";
 import "./js/modules/slider.js";
 import "./css/bootstrap-grid.min.css";
 import "./css/bootstrap-reboot.min.css";
 import "./css/fonts.css";
-import "./scss/main.scss";

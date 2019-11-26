@@ -7,17 +7,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: baseWebpackConfig.externals.paths.dist,
     port: 8081,
+    hot: true,
+    // liveReload: false,
     overlay: {
       warnings: true,
       errors: true
-    }
+    },
+    contentBase: baseWebpackConfig.externals.paths.dist
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
+    
   ]
 })
 

@@ -1,4 +1,5 @@
 const path = require('path')
+// const webpack =  require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -22,7 +23,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: ''
   },
   optimization: {
     splitChunks: {
@@ -106,5 +107,6 @@ module.exports = {
       { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
       // { from: `${PATHS.src}/static`, to: '' },
     ])
+    // new webpack.HotModuleReplacementPlugin()
   ],
 }

@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack =  require('webpack')
 
 module.exports = {
     entry: {
@@ -49,13 +50,15 @@ module.exports = {
     },
 
     devServer: {
-        overlay: true
+        overlay: true,
+        hot: true
     },
 
    plugins: [
        new MiniCssExtractPlugin({
            filename: "[name].css"
-       })
+       }),
+       new webpack.HashedModuleIdsPlugin()
    ] 
 }
 
