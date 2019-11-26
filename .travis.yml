@@ -6,8 +6,12 @@ os: ocx
 
 jobs:
   include:
+    - stage: "Tests"                # naming the Tests stage
+    name: "Unit Tests"    
     script:
       - npm run build
+    - stage: deploy
+    name: "Deploy to GCP"
     deploy:
       provider: pages
       skip_cleanup: true
