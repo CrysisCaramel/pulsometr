@@ -4,14 +4,16 @@ node_js:
 
 os: ocx
 
-script:
-  - npm run build
+jobs:
+  include:
+    script:
+      - npm run build
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      keep_history: true
+      local_dir: dist
+      on:
+        branch: ci
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  local_dir: dist
-  on:
-    branch: ci
