@@ -23,11 +23,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-<<<<<<< HEAD
-    publicPath: ''
-=======
     publicPath: '' //or /
->>>>>>> 54345d3280e9f91bde225f567229a31f85afda6b
   },
   optimization: {
     splitChunks: {
