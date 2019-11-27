@@ -1,14 +1,14 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 
 const PATHS = {
-  src: path.join(__dirname, '../src'),
-  dist: path.join(__dirname, '../dist'),
-  assets: 'assets/'
-}
+  src: path.join(__dirname, "../src"),
+  dist: path.join(__dirname, "../dist"),
+  assets: "assets/"
+};
 
 module.exports = {
   // BASE config
@@ -22,15 +22,15 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    publicPath: ''//or /
+    publicPath: ""//or /
   },
   optimization: {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          name: 'vendors',
+          name: "vendors",
           test: /node_modules/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true
         }
       }
@@ -39,48 +39,48 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      loader: 'babel-loader',
-      exclude: '/node_modules/'
+      loader: "babel-loader",
+      exclude: "/node_modules/"
     }, {
       test: /\.vue$/,
-      loader: 'vue-loader',
+      loader: "vue-loader",
       options: {
         loader: {
-          scss: 'vue-style-loader!css-loader!sass-loader'
+          scss: "vue-style-loader!css-loader!sass-loader"
         }
       }
     }, {
       test: /\.(png|jpg|gif|svg|jpeg)$/,
-      loader: 'file-loader',
+      loader: "file-loader",
       options: {
-        name: '[name].[ext]'
+        name: "[name].[ext]"
       }
     }, {
       test: /\.scss$/,
       use: [
-        'style-loader',
+        "style-loader",
         MiniCssExtractPlugin.loader,
         {
-          loader: 'css-loader',
+          loader: "css-loader",
           options: { sourceMap: true }
         }, {
-          loader: 'postcss-loader',
+          loader: "postcss-loader",
           options: { sourceMap: true, config: { path: `${PATHS.src}/js/postcss.config.js` } }
         }, {
-          loader: 'sass-loader',
+          loader: "sass-loader",
           options: { sourceMap: true }
         }
       ]
     }, {
       test: /\.css$/,
       use: [
-        'style-loader',
+        "style-loader",
         MiniCssExtractPlugin.loader,
         {
-          loader: 'css-loader',
+          loader: "css-loader",
           options: { sourceMap: true }
         }, {
-          loader: 'postcss-loader',
+          loader: "postcss-loader",
           options: { sourceMap: true, config: { path: `${PATHS.src}/js/postcss.config.js` } }
         }
       ]
@@ -88,7 +88,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.js'
+      "vue$": "vue/dist/vue.js"
     }
   },
   plugins: [
@@ -99,7 +99,7 @@ module.exports = {
     // Copy HtmlWebpackPlugin and change index.html for another html page
     new HtmlWebpackPlugin({
       template: `${PATHS.src}/index.html`,
-      filename: './index.html',
+      filename: "./index.html",
       inject: true
     }),
     new CopyWebpackPlugin([
@@ -107,4 +107,4 @@ module.exports = {
       // { from: `${PATHS.src}/static`, to: '' },
     ])
   ],
-}
+};

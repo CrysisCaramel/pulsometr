@@ -6,14 +6,14 @@ os: ocx
 
 jobs:
   include:
-  - stage: "Bundl"                # naming the Tests stage
-    name: "Webpack"    
-    script:
-      - npm run build
   - stage: "Linter"
     name: "Eslint"
     script: 
-      - eslint dist
+      - eslint src
+  - stage: "Bundler"                # naming the Tests stage
+    name: "Webpack"    
+    script:
+      - npm run build
   - stage: deploy
     name: "Deploy to GCP"
     deploy:
