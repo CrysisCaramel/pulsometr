@@ -28,7 +28,7 @@ catalogContent.addEventListener("click", function(event) {
             }
         }
     }
-})
+});
     
 function ShowTabContents(a) {
     for (let i = a; i < selector.length; i++) {

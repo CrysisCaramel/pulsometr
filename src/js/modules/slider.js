@@ -9,7 +9,7 @@ function slider() {
     dot = document.querySelectorAll(".dot");
 
 
-ShowSlides(slideIndex)
+ShowSlides(slideIndex);
 function ShowSlides(n) {
     if (n > slides.length) {
         slideIndex = 1;
