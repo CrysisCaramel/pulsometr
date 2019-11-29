@@ -76,3 +76,6 @@ import "./js/modules/slider.js";
 import "./css/bootstrap-grid.min.css";
 import "./css/bootstrap-reboot.min.css";
 import "./css/fonts.css";
+if(module && module.hot) {
+    module.hot.accept();
+}

@@ -9,7 +9,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     port: 8081,
     hot: true,
-    // liveReload: false,
     overlay: {
       warnings: true,
       errors: true
@@ -19,12 +18,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'
-    }),
-    new webpack.HotModuleReplacementPlugin()
-    
+    })
   ]
 })
 
 module.exports = new Promise((resolve, reject) => {
   resolve(devWebpackConfig)
 })
+
+
