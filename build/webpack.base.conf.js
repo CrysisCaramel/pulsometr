@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack =  require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -17,6 +18,7 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
+    app: ['babel-polyfill', PATHS.src]
     // module: `${PATHS.src}/your-module.js`,
   },
   output: {

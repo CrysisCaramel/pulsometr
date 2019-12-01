@@ -1,8 +1,7 @@
 "use strict";
 
-
-//tabs 
-let link = document.querySelectorAll(".catalog-item__link"),
+        //tabs 
+    let link = document.querySelectorAll(".catalog-item__link"),
     content = document.querySelectorAll(".catalog-item__content"),
     list = document.querySelectorAll(".catalog-item__list"),
     tabs = document.querySelectorAll(".catalog-item"),
@@ -11,16 +10,16 @@ let link = document.querySelectorAll(".catalog-item__link"),
     wrap = document.querySelectorAll(".catalog__tab"),
     catalogContent = document.querySelector(".catalog__content");
 
-function linkWrap(d) {
+    function linkWrap(d) {
     for(let i = d; i < link.length; i++) {
         link[i].addEventListener("click", function() {
             list[i].classList.add("catalog-item__list_active");
             content[i].classList.remove("catalog-item__content_active");
         });
     }
-}
+    }
 
-catalogContent.addEventListener("click", function(event) {
+    catalogContent.addEventListener("click", function(event) {
     if (event.target && event.target.classList.contains("catalog-item__link")) {
         for(let i = 0; i < link.length; i++) {
             if(event.target == link[i]) {
@@ -28,28 +27,28 @@ catalogContent.addEventListener("click", function(event) {
             }
         }
     }
-});
-    
-function ShowTabContents(a) {
+    });
+
+    function ShowTabContents(a) {
     for (let i = a; i < selector.length; i++) {
         wrap[i].classList.remove("catalog__tab_active");
     }
-}
-ShowTabContents(1); 
+    }
+    ShowTabContents(1); 
 
-function hideTabs(b) {
+    function hideTabs(b) {
     if (!wrap[b].classList.contains("catalog__tab_active")) {
         wrap[b].classList.add("catalog__tab_active");
     }
-}
+    }
 
-function run() {
+    function run() {
     tabs.forEach(function(tabs) {
         tabs.classList.remove("catalog__content_active");
     });
-}
+    }
 
-catalog.addEventListener("click", function(event) {
+    catalog.addEventListener("click", function(event) {
     if (event.target && event.target.classList.contains("feed")) {
         for (let i = 0; i < selector.length; i++) {
             if (event.target == selector[i]) {
@@ -70,10 +69,14 @@ catalog.addEventListener("click", function(event) {
             }
         }
     }
-});
-import "./js/modules/slider.js";
-import "./js/modules/dynamic.js";
-import "./css/bootstrap-grid.min.css";
-import "./css/bootstrap-reboot.min.css";
-import "./css/fonts.css";
-import "./scss/main.scss";
+    });
+    import "./js/print.js";
+    import "./js/modules/slider.js";
+    import "./js/modules/dynamic.js";
+    import "./css/bootstrap-grid.min.css";
+    import "./css/bootstrap-reboot.min.css";
+    import "./css/fonts.css";
+    import "./scss/main.scss";
+
+    if (module && module.hot ) module.hot.accept()
+    

@@ -1,18 +1,36 @@
 .block {
-    height: 800px;
+    max-height: 600px;
     .wrap {
-        height: 300px;
-    }
-    &__content {
+        margin-top: 30px;
+        min-height: 195px;
+        max-height: 400px;
         display: flex;
         justify-content: space-between;
+        border: 2px solid #e8e8e8;
+        &:hover {
+            transition: all 1.4s;
+            border: 2px inset $main-color;
+            background-color: rgba(1,1,1, 0.2);
+        }
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+        &:nth-child(2) {
+            margin-top: 0;
+        }
+        span {
+            padding: 20px 0;
+            margin-left: 20px;
+            max-width: 285px;
+            font-size: 14px;
+        }
         img {
+            margin: 0;
+            padding: 0;
+            margin-top: 20px;
             width: 150px;
             height: 150px;
-        }
-        .textContent {
-            margin-left: 10px;
-            width: 300px;
+            border: 1px inset $main-color;
         }
     }
 }

@@ -3,3 +3,10 @@
         "@babel/preset-env"
     ]
 }
+// {
+//     "presets": [
+//       ["env", { "modules": false } ],
+//       "stage-3"
+//     ],
+//     "plugins": ["syntax-dynamic-import"]
+//   }
