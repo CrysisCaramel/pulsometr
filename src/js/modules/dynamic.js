@@ -56,79 +56,93 @@ imgUrl = imgParam("page=2");
 
 //promise
 
-// function sendRequest(method, blockUrl, imgUrl,numberOfBlocks) {
-//     for(let i = 1; i <= numberOfBlocks; i++) {
-//         const div = document.createElement("div"),
+// function sendRequest(method, blockUrl) {
+//     return new Promise((resolve,reject) => {
+//         const xhr = new XMLHttpRequest();
+//         xhr.open(method,blockUrl);
+//         xhr.responseType = "json";
+//         xhr.onload = () => {
+//             xhr.status >= 400 ? reject(xhr.response) : resolve(xhr.response);
+//         };
+//         xhr.send();
+//     });
+// }
+
+// function generateImg(data) {
+//    const num = Math.ceil(Math.random() * 29);
+//    return data[num];
+// }
+
+// function createBlock(method, BlockUrl, imgUrl) {
+//     const div = document.createElement("div"),
 //         block = document.querySelector(".block"),
 //         row = block.querySelector(".row"),
 //         span = document.createElement("span"),
-//         img = document.createElement("img"),   
-//         blockPromise = new Promise((resolve,reject) => {
-//             const xhr = new XMLHttpRequest();
-//             xhr.open(method,blockUrl);
-//             xhr.responseType = "json";
-//             xhr.onload = () => {
-//                 xhr.status >= 400 ? reject(xhr.response) : resolve(xhr.response);
-//             };
-//             xhr.send();
-//         }),
-//         imgPromise = new Promise((resolve,reject) => {
-//             const xhrImg = new XMLHttpRequest();
-//             xhrImg.open(method, imgUrl);
-//             xhrImg.responseType = "json";
-//             xhrImg.onload = () => {
-//                 xhrImg.status >= 400 ? reject(xhrImg.response) : resolve(xhrImg.response);
-//             };
-//             xhrImg.send();
-//         });
+//         img = document.createElement("img");
 //         div.classList.add("col-6");
 //         div.classList.add("wrap");
 //         row.appendChild(div);
 //         div.appendChild(img);
 //         div.appendChild(span);
-//         blockPromise.then((data) => {
+//         const sendBlock = sendRequest(method, BlockUrl)
+//         .then(data => {
 //             span.textContent = data;
-//         })
-//         .catch(data => {
-//             console.error(data);
 //         });
-//         imgPromise.then(data => {
-//             img.src = data[i].download_url;
+//         const sendImg = sendRequest(method, imgUrl)
+//         .then(data => {
+//             img.src = generateImg(data).download_url;
 //         });
-
-//     } 
 // }
-// sendRequest("GET", sendUrl, imgUrl, 2);
-    
+
+// function createSectionBlog(number, method, blockUrl, imgUrl) {
+//     for (let i = 1; i <= number; i++) {
+//         createBlock(method, blockUrl, imgUrl);
+//     }
+// }
+// createSectionBlog(5, "GET", sendUrl, imgUrl);
+
 
 
 ///fetch async await
 
 
-// async function sendRequest(blockUrl, imgUrl, numberOfBlocks) {
-//     for (let i = 1; i <= numberOfBlocks; i++) {
-//         try {
-//             const blockResponse = await fetch(blockUrl),
-//             dataBlock = await blockResponse.json(),
-//             imgResponse = await fetch(imgUrl),
-//             dataImg = await imgResponse.json(),
-//             div = document.createElement("div"),
-//             block = document.querySelector(".block"),
-//             row = block.querySelector(".row"),
-//             span = document.createElement("span"),
-//             img = document.createElement("img");
-//             div.classList.add("col-6");
-//             div.classList.add("wrap");
-//             row.appendChild(div);
-//             div.appendChild(img);
-//             div.appendChild(span);
-//             span.textContent = dataBlock;
-//             img.src = dataImg[i].download_url;
-//         } catch(e) {
-//             console.error(e);
-//         }
+async function sendRequest(Url) {
+    try {
+        const urlResponse = await fetch(Url),
+        data= await urlResponse.json();
+        return data;
+    } catch(e) {
+        console.error(e);
+    }
+}        
 
-//     } 
-// }        
+function generateImg(data) {
+   const num = Math.ceil(Math.random() * 29);
+   return data[num].download_url;
+}
 
-// sendRequest(sendUrl, imgUrl, 9);
+async function createBlock(url1, url2) {
+    const div = document.createElement("div"),
+    block = document.querySelector(".block"),
+    row = block.querySelector(".row"),
+    span = document.createElement("span"),
+    img = document.createElement("img");
+    div.classList.add("col-6");
+    div.classList.add("wrap");
+    row.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(span);
+    const sendRequestBlock = await sendRequest(url1);
+    const sendRequestImg = await sendRequest(url2);
+    span.textContent = sendRequestBlock;
+    img.src = generateImg(sendRequestImg);
+}
+
+function createSectionBlog(number) {
+    for (let i = 1; i <= number; i++) {
+        createBlock(sendUrl, imgUrl);
+    }
+}
+createSectionBlog(10);
+
+
